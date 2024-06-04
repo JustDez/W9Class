@@ -116,14 +116,14 @@ const AddToCart = (cart: CartProps ) => {
     const [ message, setMessage] = useState<string>()
     const [ messageType, setMessageType ] = useState<MessageType>()
     const { register, handleSubmit } = useForm<SubmitProps>({})
-    let myCart = cart.cartItem 
+    const myCart = cart.cartItem; 
 
 
     const onSubmit: SubmitHandler<SubmitProps> = async (data: SubmitProps, event: any) => {
         if (event) event.preventDefault(); 
 
-        const userId = localStorage.getItem('uuid') //grabbing the user id from localstorage 
-        const cartRef = ref(db, `carts/${userId}/`) // this is where we are pathing in our database 
+        const userId = localStorage.getItem('uuid'); //grabbing the user id from localstorage 
+        const cartRef = ref(db, `carts/${userId}/`); // this is where we are pathing in our database 
 
         //this is grabbing our data object to send to the database for our cart 
 
@@ -131,7 +131,7 @@ const AddToCart = (cart: CartProps ) => {
         // if they try to add a quantity greater than available it'll just go down to available quantity 
 
         if (myCart.quantity > parseInt(data.quantity)) {
-            myCart.quantity = parseInt(data.quantity)
+            myCart.quantity = parseInt(data.quantity);
         }
 
         // push because we are pushing an object to a list essentially
@@ -149,7 +149,7 @@ const AddToCart = (cart: CartProps ) => {
             setMessage(error.message)
             setMessageType('error')
             setOpen(true)
-        })
+        });
     }
 
     return (

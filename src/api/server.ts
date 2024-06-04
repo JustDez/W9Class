@@ -94,7 +94,7 @@ export const serverCalls = {
         return await response.json()
 
     },
-    deleteOrder: async (orderId: string, data: string) => {
+    deleteOrder: async (orderId: string, data: any) => {
         // api call consist of 1-4 things 
         // 1. url (required)
         // 2. method (optional it will default to GET)

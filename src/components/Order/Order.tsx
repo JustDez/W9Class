@@ -106,7 +106,7 @@ const UpdateQuantity = (props: UpdateProps) => {
       let orderId = ""
       let prodId = ""
 
-      for (let order of props.orderData) {
+      for (const order of props.orderData) {
           if (order.id === props.id) {
               orderId = order.order_id as string
               prodId = order.prod_id as string 
@@ -193,7 +193,7 @@ export const Order = () => {
 
       // looping through list of order objects until we find the object with our id 
       
-      for (let order of orderData){
+      for (const order of orderData){
           if (order.id === id){
               order_id = order.order_id as string
               prod_id = order.prod_id as string
@@ -228,7 +228,7 @@ return (
     <DataGrid
       rows={orderData}
       columns={columns}
-      sx={{ color: 'white', borderColor: theme.palette.primary.main, backGroundColor: theme.palette.secondary }}
+      sx={{ color: 'white', borderColor: theme.palette.primary.main, backgroundColor: theme.palette.secondary.light }}
       initialState={{
         pagination: {
           paginationModel: {
